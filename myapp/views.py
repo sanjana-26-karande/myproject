@@ -1,8 +1,13 @@
 from django.shortcuts import render
 
 def menu(request):
-    
+    # Create a dictionary with dynamic content
     menu_items = {
-        'name': 'Greek Salad',
+        'mains': [
+            {'name': 'Greek Salad', 'price': 12},
+            {'name': 'Bruschetta', 'price': 8},
+            {'name': 'Grilled Fish', 'price': 20},
+        ]
     }
-    return render(request, 'menu.html', {'menu_item': menu_items})
+    # Pass the dictionary to the template
+    return render(request, 'menu.html', menu_items)
